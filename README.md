@@ -5,7 +5,7 @@
 2. Heroku Account
 3. VS code IDE
 4. GIT CLI
-
+5. [GIT Documentation](https://git-scm.com/docs/gittutorial)
 
 ### Create a conda environment
 ```
@@ -57,3 +57,4 @@ To check remote url
 git remote -v
 ```
 
+x

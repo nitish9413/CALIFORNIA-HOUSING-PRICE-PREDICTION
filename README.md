@@ -90,3 +90,7 @@ To stop dokcker container
 docker stop <container_id>
 ```
 
+To setup project run
+```
+python setup.py install
+```

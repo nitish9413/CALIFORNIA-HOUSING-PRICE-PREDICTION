@@ -1,5 +1,5 @@
 from typing import List
-from setuptools import setup
+from setuptools import setup,find_packages
 
 PROJECT_NAME="Housing-price-predictor"
 VERSION="0.0.1"
@@ -17,7 +17,7 @@ def get_requirements_list()->List[str]:
     of libraries in requirements.txt file
     """
     with open(REQUIREMENTS_FILE_NAME) as requirement_file:
-        return requirement_file.readline()
+        return requirement_file.readline().replace("-e .","")
 
 
 
@@ -26,6 +26,6 @@ name=PROJECT_NAME,
 version=VERSION,
 author=AUTHOR,
 description=DESCRIPTION,
-packages=PACKAGES,
+packages=find_packages(),
 install_require=get_requirements_list()
 )

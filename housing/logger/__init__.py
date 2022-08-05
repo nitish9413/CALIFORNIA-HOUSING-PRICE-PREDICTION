@@ -10,9 +10,11 @@ CURRENT_TIME_STAMP=f"{datetime.now().strftime('%y-%m-%d_%H-%M-%S')}"
 
 LOF_FILE_NAME=f"log_{CURRENT_TIME_STAMP}.log"
 
-os.makedirs(LOG_DIR)
+os.makedirs(LOG_DIR,exist_ok=True)
 
-LOG_FILE_PATH=os.path.join(filename=LOG_FILE_PATH,
+LOG_FILE_PATH=os.path.join(LOG_DIR,LOF_FILE_NAME)
+
+logging.basicConfig(filename=LOG_FILE_PATH,
 filemode='w',
 format='[%(asctime)s] %(name)s - %(levelname)s - %(message)s',
 level=logging.INFO

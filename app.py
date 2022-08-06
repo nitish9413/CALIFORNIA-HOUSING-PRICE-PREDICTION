@@ -10,8 +10,8 @@ def index():
     try:
         raise Exception("we are testing exception")
     except Exception as e:
-        raise HousingException(e,sys) from e
-        logging.info(housing.get_detailed_error_message())
+        housing =HousingException(e,sys)
+        logging.info(housing.error_message)
         logging.info("we are testing logging module")
     return 'CI/CD pipeline has been established.'
 

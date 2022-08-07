@@ -16,7 +16,7 @@ class Configuration:
         self.time_stamp=current_time_stamp
 
     def get_data_ingestion_config(self)->DataIngestionConfig:
-        pass
+        
 
     def get_data_validation_config(self)->DataValidationConfig:
         pass

@@ -14,7 +14,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 import pandas as pd
 from housing.constant import *
-from housing.util.util import read_yaml_file,save_object,save_numpy_array_data,load_data
+from housing.util.util import read_yaml_file,save_object,save_numpy_array_data ,load_data
 
 
 #   longitude: float
@@ -99,6 +99,29 @@ class DataTransformation:
             self.data_ingestion_artifact = data_ingestion_artifact
             self.data_validation_artifact = data_validation_artifact
 
+        except Exception as e:
+            raise HousingException(e,sys) from e
+
+    @staticmethod
+    def load_data(file_path: str, schema_file_path: str) -> pd.DataFrame:
+        try:
+            datatset_schema = read_yaml_file(schema_file_path)
+
+            schema = datatset_schema[DATASET_SCHEMA_COLUMNS_KEY]
+
+            dataframe = pd.read_csv(file_path)
+
+            error_messgae = ""
+
+
+            for column in dataframe.columns:
+                if column in list(schema.keys()):
+                    dataframe[column].astype(schema[column])
+                else:
+                    error_messgae = f"{error_messgae} \nColumn: [{column}] is not in the schema."
+            if len(error_messgae) > 0:
+                raise Exception(error_messgae)
+            return dataframe
         except Exception as e:
             raise HousingException(e,sys) from e
 

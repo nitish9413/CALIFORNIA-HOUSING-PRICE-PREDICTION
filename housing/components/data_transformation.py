@@ -13,7 +13,7 @@ class DataTransformation:
                 data_validation_artifact: DataValidationArtifact   
                 ):
         try:
-            self.data_transformation_config= data_trnasformation_config
+            self.data_transformation_config= data_transformation_config
             self.data_ingestion_artifact = data_ingestion_artifact
             self.data_validation_artifact = data_validation_artifact
 

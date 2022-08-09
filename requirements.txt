@@ -7,4 +7,5 @@ PyYAML
 evidently
 dill
 matplotlib
+evidently
 -e .

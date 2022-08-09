@@ -94,3 +94,4 @@ To setup project run
 ```
 python setup.py install
 ```
+

@@ -27,7 +27,7 @@ Experiment = namedtuple("Experiment", ["experiment_id", "initialization_timestam
                                        "running_status", "start_time", "stop_time", "execution_time", "message",
                                        "experiment_file_path", "accuracy", "is_model_accepted"])
 
-config = Configuartion()
+config = Configuration()
 os.makedirs(config.training_pipeline_config.artifact_dir, exist_ok=True)
 
 
@@ -37,7 +37,7 @@ class Pipeline(Thread):
     experiment_file_path = os.path.join(config.training_pipeline_config.artifact_dir,
                                         EXPERIMENT_DIR_NAME, EXPERIMENT_FILE_NAME)
 
-    def __init__(self, config: Configuartion = config) -> None:
+    def __init__(self, config: Configuration = config) -> None:
         try:
             super().__init__(daemon=False, name="pipeline")
             self.config = config
